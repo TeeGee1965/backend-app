@@ -11,19 +11,28 @@ import { LanguageSelect } from '../../shared/language-select/language-select';
     <main><router-outlet /></main>
   `,
   styles: `
+    // Three rows: language bar | page | empty row as tall as the language bar.
+    // The equal top and bottom rows put the card in the true middle of the viewport,
+    // while the language bar still never overlaps the card on small screens.
     :host {
-      display: flex;
-      flex-direction: column;
+      --bar-height: 56px;
+      display: grid;
+      grid-template-rows: var(--bar-height) 1fr var(--bar-height);
       min-height: 100%;
     }
     header {
       display: flex;
+      align-items: center;
       justify-content: flex-end;
-      padding: 8px 16px 0;
+      padding: 0 16px;
     }
+    // Flex column (not grid): the empty <router-outlet> element then takes no space,
+    // and the routed page is centered vertically.
     main {
-      flex: 1;
-      display: grid;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 16px;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

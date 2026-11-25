@@ -1,9 +1,7 @@
+// Vertical centering is done by the auth layout; here only horizontal
 :host {
-  display: grid;
-  place-items: center;
-  min-height: 100%;
-  padding: 16px;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
 .login-card {
