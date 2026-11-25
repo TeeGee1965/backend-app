@@ -22,4 +22,4 @@ services:
       - key: JWT_SECRET
         generateValue: true # Render creates a random secret
       - key: JWT_EXPIRES_IN
-        value: 3d # matches the cookie lifetime in generatetoken.js
+        value: 1h # keep in sync with the cookie maxAge in generatetoken.js (1 hour)
