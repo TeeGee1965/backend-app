@@ -1,0 +1,25 @@
+# Render Blueprint: one Node web service that runs the Express API (backend-course)
+# and also serves the built Angular app (backend-ui) from the same origin.
+# Render → New → Blueprint → pick this repository.
+services:
+  - type: web
+    name: backend-app
+    runtime: node
+    plan: free
+    # --include=dev: NODE_ENV=production is also set during the build, and without this
+    # flag npm would skip the Angular CLI (a devDependency) and the build would fail.
+    buildCommand: >-
+      npm ci --include=dev --prefix backend-ui &&
+      npm run build --prefix backend-ui &&
+      npm ci --omit=dev --prefix backend-course
+    startCommand: npm start --prefix backend-course
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false # asked for once when the Blueprint is created
+      - key: JWT_SECRET
+        generateValue: true # Render creates a random secret
+      - key: JWT_EXPIRES_IN
+        value: 3d # matches the cookie lifetime in generatetoken.js

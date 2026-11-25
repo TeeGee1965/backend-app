@@ -1,0 +1,13 @@
+# Dependencies and build output (Render builds these itself)
+node_modules/
+dist/
+.angular/
+
+# Secrets – never commit. Set them in the Render dashboard instead.
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+npm-debug.log*
