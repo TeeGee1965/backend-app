@@ -11,7 +11,7 @@ import {
   RegisterResponse,
 } from './auth.models';
 
-/** Thin HTTP wrapper around the backend-course `/auth` routes. */
+/** Thin HTTP wrapper around the backend-api `/auth` routes. */
 @Injectable({ providedIn: 'root' })
 export class AuthApi {
   private readonly http = inject(HttpClient);

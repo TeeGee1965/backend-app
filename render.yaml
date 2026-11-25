@@ -1,4 +1,4 @@
-# Render Blueprint: one Node web service that runs the Express API (backend-course)
+# Render Blueprint: one Node web service that runs the Express API (backend-api)
 # and also serves the built Angular app (backend-ui) from the same origin.
 # Render → New → Blueprint → pick this repository.
 services:
@@ -11,8 +11,8 @@ services:
     buildCommand: >-
       npm ci --include=dev --prefix backend-ui &&
       npm run build --prefix backend-ui &&
-      npm ci --omit=dev --prefix backend-course
-    startCommand: npm start --prefix backend-course
+      npm ci --omit=dev --prefix backend-api
+    startCommand: npm start --prefix backend-api
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV

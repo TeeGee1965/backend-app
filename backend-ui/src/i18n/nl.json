@@ -22,14 +22,14 @@
     "passwordRequired": "Wachtwoord is verplicht",
     "login": {
       "title": "Inloggen",
-      "subtitle": "Met je backend-course-account",
+      "subtitle": "Log in met je account",
       "submit": "Inloggen",
       "noAccount": "Nog geen account?",
       "createOne": "Maak er een aan"
     },
     "register": {
       "title": "Account aanmaken",
-      "subtitle": "Registreer je voor backend-course",
+      "subtitle": "Het duurt maar even",
       "name": "Naam",
       "nameRequired": "Naam is verplicht",
       "nameTooLong": "De naam is te lang",

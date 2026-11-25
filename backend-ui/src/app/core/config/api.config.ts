@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
 /**
- * Base URL of the backend-course API.
+ * Base URL of the backend-api.
  * In development, `/api` is proxied to http://localhost:3001/api (see proxy.conf.json);
  * in production the backend serves this app itself, so `/api` is the same server.
  * Either way the httpOnly `jwt` cookie set by the backend stays same-origin.

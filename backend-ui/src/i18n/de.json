@@ -22,14 +22,14 @@
     "passwordRequired": "Passwort ist erforderlich",
     "login": {
       "title": "Anmelden",
-      "subtitle": "Mit deinem backend-course-Konto",
+      "subtitle": "Melde dich mit deinem Konto an",
       "submit": "Anmelden",
       "noAccount": "Noch kein Konto?",
       "createOne": "Jetzt erstellen"
     },
     "register": {
       "title": "Konto erstellen",
-      "subtitle": "Registriere dich für backend-course",
+      "subtitle": "Es dauert nur einen Moment",
       "name": "Name",
       "nameRequired": "Name ist erforderlich",
       "nameTooLong": "Der Name ist zu lang",
