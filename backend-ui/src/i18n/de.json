@@ -1,0 +1,62 @@
+{
+  "app": {
+    "name": "Backend UI"
+  },
+  "language": {
+    "label": "Sprache"
+  },
+  "titles": {
+    "login": "Anmelden",
+    "register": "Konto erstellen",
+    "home": "Startseite"
+  },
+  "auth": {
+    "email": "E-Mail",
+    "password": "Passwort",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort verbergen",
+    "showPasswords": "Passwörter anzeigen",
+    "hidePasswords": "Passwörter verbergen",
+    "emailRequired": "E-Mail ist erforderlich",
+    "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein",
+    "passwordRequired": "Passwort ist erforderlich",
+    "login": {
+      "title": "Anmelden",
+      "subtitle": "Mit deinem backend-course-Konto",
+      "submit": "Anmelden",
+      "noAccount": "Noch kein Konto?",
+      "createOne": "Jetzt erstellen"
+    },
+    "register": {
+      "title": "Konto erstellen",
+      "subtitle": "Registriere dich für backend-course",
+      "name": "Name",
+      "nameRequired": "Name ist erforderlich",
+      "nameTooLong": "Der Name ist zu lang",
+      "passwordHint": "Mindestens {{ min }} Zeichen",
+      "passwordTooShort": "Mindestens {{ min }} Zeichen",
+      "confirmPassword": "Passwort bestätigen",
+      "confirmRequired": "Bitte wiederhole das Passwort",
+      "passwordMismatch": "Die Passwörter stimmen nicht überein",
+      "submit": "Konto erstellen",
+      "haveAccount": "Schon ein Konto?",
+      "signIn": "Anmelden"
+    }
+  },
+  "shell": {
+    "userMenu": "Benutzermenü",
+    "logout": "Abmelden"
+  },
+  "home": {
+    "welcome": "Willkommen",
+    "signedInAs": "Angemeldet als {{ email }}",
+    "underConstruction": "Diese Seite befindet sich im Aufbau. Bald gibt es mehr."
+  },
+  "errors": {
+    "unreachable": "Server nicht erreichbar. Läuft das Backend?",
+    "invalidCredentials": "E-Mail oder Passwort ist falsch",
+    "emailTaken": "Für diese E-Mail-Adresse gibt es bereits ein Konto",
+    "invalidInput": "Bitte überprüfe deine Eingaben",
+    "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  }
+}

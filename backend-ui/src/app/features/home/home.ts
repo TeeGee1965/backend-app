@@ -1,21 +1,24 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { AuthStore } from '../../core/auth/auth.store';
 
 @Component({
   selector: 'app-home',
-  imports: [MatCardModule, MatIconModule],
+  imports: [MatCardModule, MatIconModule, TranslocoPipe],
   template: `
     <mat-card appearance="outlined">
       <mat-card-header>
-        <mat-card-title>Welcome</mat-card-title>
-        <mat-card-subtitle>You are signed in as {{ store.user()?.email }}</mat-card-subtitle>
+        <mat-card-title>{{ 'home.welcome' | transloco }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ 'home.signedInAs' | transloco: { email: store.user()?.email } }}
+        </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p class="construction">
           <mat-icon>construction</mat-icon>
-          <span>This page is under construction. More is coming soon.</span>
+          <span>{{ 'home.underConstruction' | transloco }}</span>
         </p>
       </mat-card-content>
     </mat-card>

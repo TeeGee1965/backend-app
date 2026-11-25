@@ -6,7 +6,7 @@ import { patchState, signalStore, withComputed, withMethods, withState } from '@
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { exhaustMap, firstValueFrom, pipe, tap } from 'rxjs';
 import { AuthApi } from './auth.api';
-import { ApiError, AuthUser, LoginRequest, RegisterRequest } from './auth.models';
+import { AuthUser, LoginRequest, RegisterRequest } from './auth.models';
 
 interface AuthState {
   user: AuthUser | null;
@@ -20,17 +20,19 @@ const initialState: AuthState = {
   error: null,
 };
 
-function toErrorMessage(err: unknown): string {
+/**
+ * Maps a failed auth request to a translation key (see src/i18n/*.json).
+ * The backend's own messages are English, so the UI picks its text by HTTP status instead.
+ */
+function toErrorKey(err: unknown): string {
   if (err instanceof HttpErrorResponse) {
     // 0 = no connection at all; 502/503/504 = the dev proxy (or a gateway) can't reach the backend
-    if ([0, 502, 503, 504].includes(err.status)) {
-      return 'Server not reachable. Is the backend running?';
-    }
-    const body = err.error as Partial<ApiError> | null;
-    if (body?.error) return body.error;
-    return err.message;
+    if ([0, 502, 503, 504].includes(err.status)) return 'errors.unreachable';
+    if (err.status === 401) return 'errors.invalidCredentials'; // login: wrong email/password
+    if (err.status === 409) return 'errors.emailTaken'; // register: email already used
+    if (err.status === 400) return 'errors.invalidInput'; // Zod validation failed
   }
-  return 'Something went wrong';
+  return 'errors.generic';
 }
 
 /**
@@ -54,7 +56,7 @@ export const AuthStore = signalStore(
         patchState(store, { user: data, loading: false });
         void router.navigateByUrl(returnUrl || '/');
       },
-      error: (err: unknown) => patchState(store, { loading: false, error: toErrorMessage(err) }),
+      error: (err: unknown) => patchState(store, { loading: false, error: toErrorKey(err) }),
     });
 
     return {

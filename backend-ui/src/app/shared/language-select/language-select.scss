@@ -1,0 +1,11 @@
+@use '@angular/material' as mat;
+
+:host {
+  display: inline-block;
+  // Compact field so it fits into a toolbar
+  @include mat.form-field-density(-4);
+}
+
+mat-form-field {
+  width: 170px;
+}

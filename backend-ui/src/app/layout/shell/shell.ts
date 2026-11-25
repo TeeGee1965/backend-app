@@ -4,24 +4,40 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { AuthStore } from '../../core/auth/auth.store';
+import { LanguageSelect } from '../../shared/language-select/language-select';
 
-/** Layout for authenticated pages: top toolbar with user menu + routed content. */
+/** Layout for authenticated pages: top toolbar with language switch + user menu, routed content. */
 @Component({
   selector: 'app-shell',
-  imports: [RouterOutlet, RouterLink, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule],
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    TranslocoPipe,
+    LanguageSelect,
+  ],
   template: `
     <mat-toolbar>
-      <a routerLink="/" class="brand">Backend UI</a>
+      <a routerLink="/" class="brand">{{ 'app.name' | transloco }}</a>
       <span class="spacer"></span>
-      <button mat-button [matMenuTriggerFor]="userMenu">
+      <app-language-select />
+      <button
+        mat-button
+        [matMenuTriggerFor]="userMenu"
+        [attr.aria-label]="'shell.userMenu' | transloco"
+      >
         <mat-icon>account_circle</mat-icon>
         <span class="email">{{ store.user()?.email }}</span>
       </button>
       <mat-menu #userMenu="matMenu" xPosition="before">
         <button mat-menu-item (click)="store.logout()" [disabled]="store.loading()">
           <mat-icon>logout</mat-icon>
-          <span>Logout</span>
+          <span>{{ 'shell.logout' | transloco }}</span>
         </button>
       </mat-menu>
     </mat-toolbar>
@@ -34,6 +50,7 @@ import { AuthStore } from '../../core/auth/auth.store';
       min-height: 100%;
     }
     mat-toolbar {
+      gap: 8px;
       background: var(--mat-sys-surface-container);
     }
     .brand {

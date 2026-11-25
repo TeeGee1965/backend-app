@@ -1,0 +1,62 @@
+{
+  "app": {
+    "name": "Backend UI"
+  },
+  "language": {
+    "label": "Taal"
+  },
+  "titles": {
+    "login": "Inloggen",
+    "register": "Account aanmaken",
+    "home": "Startpagina"
+  },
+  "auth": {
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "showPassword": "Wachtwoord tonen",
+    "hidePassword": "Wachtwoord verbergen",
+    "showPasswords": "Wachtwoorden tonen",
+    "hidePasswords": "Wachtwoorden verbergen",
+    "emailRequired": "E-mail is verplicht",
+    "emailInvalid": "Vul een geldig e-mailadres in",
+    "passwordRequired": "Wachtwoord is verplicht",
+    "login": {
+      "title": "Inloggen",
+      "subtitle": "Met je backend-course-account",
+      "submit": "Inloggen",
+      "noAccount": "Nog geen account?",
+      "createOne": "Maak er een aan"
+    },
+    "register": {
+      "title": "Account aanmaken",
+      "subtitle": "Registreer je voor backend-course",
+      "name": "Naam",
+      "nameRequired": "Naam is verplicht",
+      "nameTooLong": "De naam is te lang",
+      "passwordHint": "Minimaal {{ min }} tekens",
+      "passwordTooShort": "Minimaal {{ min }} tekens",
+      "confirmPassword": "Wachtwoord bevestigen",
+      "confirmRequired": "Herhaal het wachtwoord",
+      "passwordMismatch": "De wachtwoorden komen niet overeen",
+      "submit": "Account aanmaken",
+      "haveAccount": "Heb je al een account?",
+      "signIn": "Inloggen"
+    }
+  },
+  "shell": {
+    "userMenu": "Gebruikersmenu",
+    "logout": "Uitloggen"
+  },
+  "home": {
+    "welcome": "Welkom",
+    "signedInAs": "Ingelogd als {{ email }}",
+    "underConstruction": "Deze pagina is in aanbouw. Binnenkort volgt meer."
+  },
+  "errors": {
+    "unreachable": "Server niet bereikbaar. Draait de backend?",
+    "invalidCredentials": "E-mailadres of wachtwoord is onjuist",
+    "emailTaken": "Er bestaat al een account met dit e-mailadres",
+    "invalidInput": "Controleer je invoer",
+    "generic": "Er is iets misgegaan. Probeer het opnieuw."
+  }
+}

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterLink } from '@angular/router';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { AuthStore } from '../../../core/auth/auth.store';
 
 @Component({
@@ -14,6 +15,7 @@ import { AuthStore } from '../../../core/auth/auth.store';
   imports: [
     ReactiveFormsModule,
     RouterLink,
+    TranslocoPipe,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
